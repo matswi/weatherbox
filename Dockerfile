@@ -73,12 +73,11 @@ RUN chmod a+x,o-w ${PS_INSTALL_FOLDER}/pwsh \
 # get script from github
  RUN \
    mkdir -p ~/weatherbox \
-   && cd ~/weatherbox 
-#   && wget https://raw.githubusercontent.com/matswi/weatherbox/master/weatherbox.ps1
-
-ADD https://raw.githubusercontent.com/matswi/weatherbox/master/weatherbox.ps1 ~/weatherbox
+   && cd ~/weatherbox \
+   && wget https://raw.githubusercontent.com/matswi/weatherbox/master/download.ps1 \
+   && /download.sh
 
 # Use PowerShell as the default shell
 # Use array to avoid Docker prepending /bin/sh -c
 ENTRYPOINT [ "pwsh" ]
-CMD [ "/root/weatherbox/weatherbox.ps1" ]
+#CMD [ "/root/weatherbox/weatherbox.ps1" ]
