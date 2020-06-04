@@ -68,6 +68,14 @@ RUN chmod a+x,o-w ${PS_INSTALL_FOLDER}/pwsh \
     # Create the pwsh symbolic link that points to powershell
     && ln -s ${PS_INSTALL_FOLDER}/pwsh /usr/bin/pwsh
 
+# get script from github
+RUN \
+  GHOUSE_TOOLS_VERSION=0.0.1 \
+  && mkdir ~/weatherbox \
+  && cd ~/weatherbox \
+  && wget https://raw.githubusercontent.com/JakobGSvendsen/PSGreenhouse/master/iot.zip
+
 # Use PowerShell as the default shell
 # Use array to avoid Docker prepending /bin/sh -c
-CMD [ "pwsh" ]
+ENTRYPOINT [ "pwsh" ]
+CMD [ "/root/weatherbox/weatherbox.ps1" ]
