@@ -72,7 +72,7 @@ RUN chmod a+x,o-w ${PS_INSTALL_FOLDER}/pwsh \
 
 # get script from github
  RUN \
-    WEATHERBOX_VERSION=0.0.5 \
+    WEATHERBOX_VERSION=0.0.6 \
     && mkdir -p ~/weatherbox \
     && cd ~/weatherbox \
     && wget https://raw.githubusercontent.com/matswi/weatherbox/master/weatherbox.ps1
