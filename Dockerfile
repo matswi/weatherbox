@@ -70,12 +70,12 @@ RUN chmod a+x,o-w ${PS_INSTALL_FOLDER}/pwsh \
     # Create the pwsh symbolic link that points to powershell
     && ln -s ${PS_INSTALL_FOLDER}/pwsh /usr/bin/pwsh
 
-# get script from github, using a download script to always download the weatherbox.ps1 script fresh
+# get script from github
  RUN \
-   mkdir -p ~/weatherbox \
-   && cd ~/weatherbox \
-   && wget https://raw.githubusercontent.com/matswi/weatherbox/master/download.sh \
-   && bash ./download.sh
+    WEATHERBOX_VERSION=0.0.5 \
+    && mkdir -p ~/weatherbox \
+    && cd ~/weatherbox \
+    && wget https://raw.githubusercontent.com/matswi/weatherbox/master/weatherbox.ps1
 
 # Use PowerShell as the default shell
 # Use array to avoid Docker prepending /bin/sh -c
