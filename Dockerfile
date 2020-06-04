@@ -73,7 +73,7 @@ RUN \
   GHOUSE_TOOLS_VERSION=0.0.1 \
   && mkdir ~/weatherbox \
   && cd ~/weatherbox \
-  && wget https://raw.githubusercontent.com/JakobGSvendsen/PSGreenhouse/master/iot.zip
+  && wget https://raw.githubusercontent.com/matswi/weatherbox/master/weatherbox.ps1
 
 # Use PowerShell as the default shell
 # Use array to avoid Docker prepending /bin/sh -c
