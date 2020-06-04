@@ -71,10 +71,10 @@ RUN chmod a+x,o-w ${PS_INSTALL_FOLDER}/pwsh \
     && ln -s ${PS_INSTALL_FOLDER}/pwsh /usr/bin/pwsh
 
 # get script from github
-RUN \
-  && mkdir ~/weatherbox \
-  && cd ~/weatherbox \
-  && wget https://raw.githubusercontent.com/matswi/weatherbox/master/weatherbox.ps1
+ RUN \
+   mkdir -p ~/weatherbox \
+   && cd ~/weatherbox \
+   && wget https://raw.githubusercontent.com/matswi/weatherbox/master/weatherbox.ps1
 
 # Use PowerShell as the default shell
 # Use array to avoid Docker prepending /bin/sh -c
