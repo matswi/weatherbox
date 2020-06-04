@@ -2,7 +2,7 @@
 
 $stepSeconds = 15
 $continue = $true
-$scriptversion = "0.0.6"
+$scriptversion = "0.0.7"
 
 $pswhVersion = $PSVersionTable.psversion.ToString()
 
