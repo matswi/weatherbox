@@ -2,7 +2,7 @@
 
 $stepSeconds = 15
 $continue = $true
-$scriptversion = "0.0.1"
+$scriptversion = "0.0.2"
 
 while ($continue) {
 
