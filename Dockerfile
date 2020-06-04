@@ -72,7 +72,6 @@ RUN chmod a+x,o-w ${PS_INSTALL_FOLDER}/pwsh \
 
 # get script from github
 RUN \
-  GHOUSE_TOOLS_VERSION=0.0.1 \
   && mkdir ~/weatherbox \
   && cd ~/weatherbox \
   && wget https://raw.githubusercontent.com/matswi/weatherbox/master/weatherbox.ps1
