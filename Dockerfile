@@ -78,7 +78,7 @@ RUN \
 
 # get script from github
  RUN \
-    WEATHERBOX_VERSION=0.0.7 \
+    WEATHERBOX_VERSION=0.0.8 \
     && mkdir -p ~/weatherbox \
     && cd ~/weatherbox \
     && wget https://raw.githubusercontent.com/matswi/weatherbox/master/weatherbox.ps1 \
@@ -92,4 +92,4 @@ RUN \
 # Use PowerShell as the default shell
 # Use array to avoid Docker prepending /bin/sh -c
 ENTRYPOINT [ "pwsh" ]
-#CMD [ "/root/weatherbox/weatherbox.ps1" ]
+CMD [ "/root/weatherbox/weatherbox.ps1" ]
