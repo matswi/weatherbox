@@ -61,7 +61,7 @@ COPY --from=installer-env ["/opt/microsoft/powershell", "/opt/microsoft/powershe
 
 RUN \
   apt-get update \
-  && apt-get install --no-install-recommends ca-certificates libunwind8 libssl1.0 libicu60 less wget --yes \
+  && apt-get install --no-install-recommends ca-certificates libunwind8 libssl1.0 libicu60 less wget unzip --yes \
   && DEBIAN_FRONTEND=noninteractive apt-get install tzdata \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
@@ -81,7 +81,9 @@ RUN \
     WEATHERBOX_VERSION=0.0.7 \
     && mkdir -p ~/weatherbox \
     && cd ~/weatherbox \
-    && wget https://raw.githubusercontent.com/matswi/weatherbox/master/weatherbox.ps1
+    && wget https://raw.githubusercontent.com/matswi/weatherbox/master/weatherbox.ps1 \
+    && wget https://raw.githubusercontent.com/JakobGSvendsen/PSGreenhouse/master/iot.zip \
+    && unzip iot.zip
 
 # Use PowerShell as the default shell
 # Use array to avoid Docker prepending /bin/sh -c
