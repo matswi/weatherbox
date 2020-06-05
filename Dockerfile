@@ -82,8 +82,12 @@ RUN \
     && mkdir -p ~/weatherbox \
     && cd ~/weatherbox \
     && wget https://raw.githubusercontent.com/matswi/weatherbox/master/weatherbox.ps1 \
-    && wget https://raw.githubusercontent.com/JakobGSvendsen/PSGreenhouse/master/iot.zip \
-    && unzip iot.zip
+    && wget https://github.com/PowerShell/PowerShell-IoT/releases/download/v0.1.1/Microsoft.PowerShell.IoT.zip \
+    && unzip Microsoft.PowerShell.IoT.zip \
+    && mkdir -p ~/weatherbox/Microsoft.PowerShell.IoT.BME280 \
+    && cd ~/weatherbox/Microsoft.PowerShell.IoT.BME280 \
+    && wget https://raw.githubusercontent.com/PowerShell/PowerShell-IoT/master/Examples/Microsoft.PowerShell.IoT.BME280/Microsoft.PowerShell.IoT.BME280.psd1 \
+    && wget https://raw.githubusercontent.com/PowerShell/PowerShell-IoT/master/Examples/Microsoft.PowerShell.IoT.BME280/Microsoft.PowerShell.IoT.BME280.psm1
 
 # Use PowerShell as the default shell
 # Use array to avoid Docker prepending /bin/sh -c
