@@ -5,7 +5,7 @@ Import-Module ./Microsoft.PowerShell.IoT.BME280/
 
 $stepSeconds = 15
 $continue = $true
-$scriptversion = "0.0.11"
+$scriptversion = "0.0.12"
 
 $startTime = Get-Date
 
