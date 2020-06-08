@@ -15,7 +15,7 @@ $sensor = Get-BME280Device
 
 $VerbosePreference = "Continue"
 
-$settings = Get-Content ./weatherbox/weatherBoxConfig.json | ConvertFrom-Json
+$settings = Get-Content ./weatherBoxConfig.json | ConvertFrom-Json
 
 $uri = $settings.insertUri
 $apiKey = $settings.insertKey
