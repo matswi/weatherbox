@@ -1,4 +1,7 @@
 # test script just to see how it runs
+
+Set-Location $PSScriptRoot
+
 Import-Module ./Microsoft.PowerShell.IoT/
 Import-Module ./Microsoft.PowerShell.IoT.BME280/
 
