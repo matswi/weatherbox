@@ -1,4 +1,5 @@
-# test script just to see how it runs
+
+$scriptversion = "0.0.13"
 
 Set-Location $PSScriptRoot
 
@@ -8,7 +9,6 @@ Import-Module ./Microsoft.PowerShell.IoT.BME280/
 
 $stepSeconds = 15
 $continue = $true
-$scriptversion = "0.0.12"
 
 $startTime = Get-Date
 
