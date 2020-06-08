@@ -5,7 +5,7 @@ Import-Module ./Microsoft.PowerShell.IoT.BME280/
 
 $stepSeconds = 15
 $continue = $true
-$scriptversion = "0.0.9"
+$scriptversion = "0.0.11"
 
 $startTime = Get-Date
 
@@ -14,6 +14,15 @@ $pswhVersion = $PSVersionTable.psversion.ToString()
 $sensor = Get-BME280Device
 
 $VerbosePreference = "Continue"
+
+$settings = Get-Content ./weatherbox/weatherBoxConfig.json | ConvertFrom-Json
+
+$uri = $settings.insertUri
+$apiKey = $settings.insertKey
+
+$headers = @{
+    "x-functions-key" = $apiKey
+}
 
 while ($continue) {
 
@@ -24,11 +33,20 @@ while ($continue) {
     $pressure    = $sensorData.Pressure
 
     $dataObject = [pscustomobject]@{
-        Name        = $(hostname) #"HomePS"
+        Name        = $(hostname)
         Humidity    = $humidity
         Temperature = $temperature
         Pressure    = $pressure
     }
+
+    try {
+        $body = $dataObject | ConvertTo-Json
+        $result = Invoke-WebRequest -Uri $uri -UseBasicParsing -Method Post -Body $body -Headers $headers
+    }
+    catch {
+        Write-Verbose $_
+    }
+    
 
     Write-Verbose $dataObject
     

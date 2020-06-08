@@ -78,7 +78,7 @@ RUN \
 
 # get script from github
  RUN \
-    WEATHERBOX_VERSION=0.0.10 \
+    WEATHERBOX_VERSION=0.0.11 \
     && mkdir -p ~/weatherbox \
     && cd ~/weatherbox \
     && wget https://raw.githubusercontent.com/matswi/weatherbox/master/weatherbox.ps1 \
